@@ -1983,6 +1983,7 @@ case $os in
 	| aux* \
 	| banan_os* \
 	| beos* \
+	| bestartos* \
 	| bitrig* \
 	| bme* \
 	| bosx* \
