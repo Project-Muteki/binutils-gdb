@@ -162,7 +162,7 @@ case ${generic_target} in
   arm-*-nacl*)				fmt=elf  em=nacl ;;
   arm-*-netbsd* | arm-*-openbsd*)	fmt=elf  em=nbsd ;;
   arm-*-nto*)				fmt=elf ;;
-  arm-wince-pe | arm-*-wince | arm*-*-mingw32ce* | arm*-*-cegcc*)
+  arm-wince-pe | arm-*-wince | arm*-*-mingw32ce* | arm*-*-cegcc* | arm-*-bestartos)
 					fmt=coff em=wince-pe ;;
   arm-*-pe)				fmt=coff em=pe ;;
   arm-*-fuchsia*)			fmt=elf ;;
