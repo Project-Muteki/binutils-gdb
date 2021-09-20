@@ -397,7 +397,7 @@ case "${targ}" in
     targ_selvecs=arm_elf32_be_vec
     targ_cflags=-D__QNXTARGET__
     ;;
-  arm-wince-pe | arm-*-wince | arm*-*-mingw32ce* | arm*-*-cegcc*)
+  arm-wince-pe | arm-*-wince | arm*-*-mingw32ce* | arm*-*-cegcc* | arm-*-bestartos*)
     targ_defvec=arm_pe_wince_le_vec
     targ_selvecs="arm_pe_wince_le_vec arm_pe_wince_be_vec arm_pei_wince_le_vec arm_pei_wince_be_vec"
     targ_underscore=no
