@@ -1977,6 +1977,7 @@ case $os in
 	| auroraux* \
 	| aux* \
 	| beos* \
+	| bestartos* \
 	| bitrig* \
 	| bme* \
 	| bosx* \
