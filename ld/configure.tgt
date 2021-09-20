@@ -176,7 +176,7 @@ arm*-*-cegcc*)		targ_emul=arm_wince_pe
 			targ_extra_ofiles="deffilep.o pe-dll.o"
 			LIB_PATH='${tooldir}/lib/w32api'
 			;;
-arm-wince-pe | arm-*-wince | arm*-*-mingw32ce*)
+arm-wince-pe | arm-*-wince | arm*-*-mingw32ce* | arm-*-bestartos)
 			targ_emul=arm_wince_pe
 			targ_extra_ofiles="deffilep.o pe-dll.o"
 			;;
