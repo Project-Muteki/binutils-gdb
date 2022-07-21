@@ -148,7 +148,7 @@ case ${generic_target} in
 
   arm-*-phoenix*)			fmt=elf ;;
   arm-*-elf)				fmt=elf ;;
-  arm-*-eabi* | arm-*-rtems* | arm-*-genode*)	fmt=elf em=armeabi ;;
+  arm-*-eabi* | arm-*-besta*eabi* | arm-*-rtems* | arm-*-genode*)	fmt=elf em=armeabi ;;
   arm-*-kaos*)				fmt=elf ;;
   arm-*-conix*)				fmt=elf ;;
   arm-*-freebsd[89].* | armeb-*-freebsd[89].*)
