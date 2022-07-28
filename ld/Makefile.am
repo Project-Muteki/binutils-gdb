@@ -165,6 +165,7 @@ ALL_EMULATION_SOURCES = \
 	earcv2elfx.c \
 	earm_wince_pe.c \
 	earmelf.c \
+	earmelf_besta.c \
 	earmelf_fbsd.c \
 	earmelf_fuchsia.c \
 	earmelf_haiku.c \
