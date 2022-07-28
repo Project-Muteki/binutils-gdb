@@ -197,8 +197,12 @@ arm-*-phoenix*)		targ_emul=armelf
 armeb-*-elf | armeb-*-eabi*)
 			targ_emul=armelfb
 			;;
-arm-*-elf | arm*-*-eabi* | arm*-*-besta*eabi* | arm-*-rtems* | arm-*-genode*)
+arm-*-elf | arm*-*-eabi* | arm-*-rtems* | arm-*-genode*)
 			targ_emul=armelf
+			;;
+arm*-*-besta*eabi*)
+			targ_emul=armelf_besta
+			targ_extra_emuls="armelf"
 			;;
 arm-*-kaos*)		targ_emul=armelf
 			;;
