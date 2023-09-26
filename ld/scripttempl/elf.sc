@@ -82,6 +82,12 @@
 #               applied to every symbol definition
 #       ALL_TEXT_BEFORE_RO - put all code sections before read-only
 #               sections
+#       EMIT_TDATA_BOUNDARY - force emit boundary of .tdata as __tdata_start
+#               and __tdata_end.
+#       EMIT_TBSS_SIZE - force emit size of .tbss as __tbss_size.
+#       EMIT_TBSS_BOUNDARY - force emit boundary of .tbss as __tbss_start
+#               and __tbss_end. Note that although __tbss_end is an offset from
+#               __tbss_start, it does not represent the actual TBSS range.
 #
 # When adding sections, do note that the names of some sections are used
 # when specifying the start address of the next.
@@ -279,6 +285,9 @@ else
   CTORS_IN_INIT_ARRAY=
   DTORS_IN_FINI_ARRAY=
 fi
+test "${EMIT_TDATA_BOUNDARY}" != "yes" && unset EMIT_TDATA_BOUNDARY || EMIT_TDATA_BOUNDARY=''
+test "${EMIT_TBSS_BOUNDARY}" != "yes" && unset EMIT_TBSS_BOUNDARY || EMIT_TBSS_BOUNDARY=''
+test "${EMIT_TBSS_SIZE}" != "yes" && unset EMIT_TBSS_SIZE || EMIT_TBSS_SIZE=''
 PREINIT_ARRAY=".preinit_array    :
   {
     ${CREATE_SHLIB-PROVIDE_HIDDEN ($(def_symbol "__preinit_array_start"));}
@@ -675,10 +684,15 @@ cat <<EOF
   /* Thread Local Storage sections  */
   .tdata	${RELOCATING-0} :
    {
-     ${RELOCATING+${CREATE_SHLIB-PROVIDE_HIDDEN ($(def_symbol "__tdata_start"));}}
+     ${EMIT_TDATA_BOUNDARY+PROVIDE_HIDDEN ($(def_symbol "__tdata_start"));}
+     ${EMIT_TDATA_BOUNDARY-${RELOCATING+${CREATE_SHLIB-PROVIDE_HIDDEN ($(def_symbol "__tdata_start"));}}}
      *(.tdata${RELOCATING+ .tdata.* .gnu.linkonce.td.*})
+     ${EMIT_TDATA_BOUNDARY+PROVIDE_HIDDEN (${USER_LABEL_PREFIX}__tdata_end = .);}
    }
+  ${EMIT_TBSS_BOUNDARY+PROVIDE_HIDDEN (${USER_LABEL_PREFIX}__tbss_start = .);}
   .tbss		${RELOCATING-0} : { *(.tbss${RELOCATING+ .tbss.* .gnu.linkonce.tb.*})${RELOCATING+ *(.tcommon)} }
+  ${EMIT_TBSS_BOUNDARY+PROVIDE_HIDDEN (${USER_LABEL_PREFIX}__tbss_end = __tbss_start + SIZEOF(.tbss));}
+  ${EMIT_TBSS_SIZE+PROVIDE_HIDDEN (${USER_LABEL_PREFIX}__tbss_size = SIZEOF(.tbss));}
 
   ${RELOCATING+${PREINIT_ARRAY}}
   ${RELOCATING+${INIT_ARRAY}}
