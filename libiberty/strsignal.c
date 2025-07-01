@@ -20,6 +20,7 @@
 
 #include <stdio.h>
 #include <signal.h>
+#include <string.h>
 
 /*  Routines imported from standard C runtime libraries. */
 

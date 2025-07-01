@@ -27,6 +27,8 @@
 #include <stdlib.h>
 #endif
 
+#include <string.h>
+
 #include "libiberty.h"
 #include "partition.h"
 

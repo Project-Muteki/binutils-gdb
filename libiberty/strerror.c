@@ -18,6 +18,7 @@
 
 #include <stdio.h>
 #include <errno.h>
+#include <string.h>
 
 #ifdef HAVE_SYS_ERRLIST
 #undef sys_errlist

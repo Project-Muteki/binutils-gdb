@@ -21,6 +21,7 @@
 #define TC_C33
 
 #include <elf/c33.h>
+#include "write.h"
 
 #define TARGET_BYTES_BIG_ENDIAN 0
 
@@ -37,6 +38,10 @@
 #define MD_APPLY_FIX3
 
 #define md_operand(x)
+
+extern void parse_cons_expression_c33(expressionS * exp);
+extern void cons_fix_new_c33(fragS * frag, int where, int size, expressionS *exp);
+extern boolean c33_fix_adjustable(fixS * fixP);
 
 #define obj_fix_adjustable(fixP) c33_fix_adjustable(fixP)
 #define TC_FORCE_RELOCATION(fixp) c33_force_relocation(fixp)

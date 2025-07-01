@@ -31,6 +31,8 @@
 #include "libiberty.h"
 #include "sb.h"
 
+#include <stdlib.h>
+
 /* These routines are about manipulating strings.
 
    They are managed in things called `sb's which is an abbreviation

@@ -551,10 +551,10 @@ read_a_source_file (name)
 
 
   c33_stabs_input_file = &szC33_stabs_input_file[0];
-  *c33_stabs_input_file = NULL;
+  *c33_stabs_input_file = '\0';
   
   c33_original_input_file = &szC33_original_input_file[0];
-  *c33_original_input_file = NULL;
+  *c33_original_input_file = '\0';
   
   /* add T.Tazaki 2002.03.04 <<< */
 
